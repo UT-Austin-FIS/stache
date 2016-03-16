@@ -1,12 +1,19 @@
-from collections import namedtuple
 import functools
 import os
 import sys
 import unittest
+from collections import namedtuple
 
-from ISU.get_credentials import ISU, ISUError
+from stache.oracle.get_credentials import GetOracleCredentials
 
-Configuration = namedtuple('Config', ('api_key', 'item_id', 'print_details'))
+Configuration = namedtuple('Config', ('isu_api_key',
+                                      'isu_item_id',
+                                      'isu_nickname',
+                                      'isu_secret',
+                                      'oracle_api_key',
+                                      'oracle_item_id',
+                                      'oracle_nickname',
+                                      'oracle_dev_secret',))
 
 def find_config():
     first_print = functools.partial(print, '\n\n')
@@ -60,8 +67,14 @@ def find_config():
             config = yaml.load(f)
             separate_on_console()
             print('> Using Configuration file at "{0}"\n'.format(config_path))
-            return Configuration(config['api_key'],
-                                 config['item_id'])
+            return Configuration(config['isu_api_key'],
+                                 config['isu_item_id'],
+                                 config['isu_nickname'],
+                                 config['isu_secret'],
+                                 config['oracle_api_key'],
+                                 config['oracle_item_id'],
+                                 config['oracle_nickname'],
+                                 config['oracle_dev_secret'],)
 
 def get_config():
     config = find_config()
@@ -72,10 +85,27 @@ def get_config():
 
 config = get_config()
 
-class TestPopulateReasons(unittest.TestCase):
+class TestGetOracleCredentials(unittest.TestCase):
 
-    def test_process_reasons(self):
+    def test_ret_creds(self):
 
-        reference = ISU(config.api_key, config.item_id)
+        reference = GetOracleCredentials(config.oracle_api_key,
+                                         config.oracle_item_id,
+                                         "DEV")
+        nickname, password = reference.ret_creds()
 
-        self.assertTrue(False)
+        self.assertEqual([nickname, password], [config.oracle_nickname,
+                                                 config.oracle_dev_secret])
+
+
+    def test_parse_secret(self):
+
+        secret = "DEV: dev-password\nQUAL: qual-password\nPROD: prod-password"
+        env = "QUAL"
+
+        reference = GetOracleCredentials(config.oracle_api_key,
+                                         config.oracle_item_id,
+                                         env)
+        password = reference.parse_secret(secret, env)
+
+        self.assertEqual(password, "qual-password")

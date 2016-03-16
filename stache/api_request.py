@@ -16,8 +16,6 @@ def retrieve_creds(api_key, item_id):
     if response.ok:
         return parse_response(response)
     else:
-    # If response code is not ok (200), print the resulting http error code with description
-    # todo: handle errors better!
         response.raise_for_status()
 
 

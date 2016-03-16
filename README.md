@@ -19,7 +19,10 @@ the entry is for.
 
 * How to run tests
 
-    * TBD
+    * Requirements not listed in requirements.txt
+        * coverage >= 
+        * nose >= 1.3.7
+        * PyYAML >= 2.8.1
 
 * Deployment instructions
 

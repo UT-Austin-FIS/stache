@@ -18,4 +18,4 @@
 *.pyc
 **/__pycache__
 
-test_config.yaml
+stache/test_config.yaml

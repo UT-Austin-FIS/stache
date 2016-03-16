@@ -1,9 +1,0 @@
-# This file is an example of the configuration required to run the tests.
-# Note that the file would need to be renamed 'test_config.yaml' and be living in
-# the directory you run the tests from to be found automatically.
-# You'd also need PyYAML installed... see the README.md.
-
-api_key: <some API key in stache>
-item_id: <some item id in stache>
-
-print_details: true # if you want the request/response XML printed
