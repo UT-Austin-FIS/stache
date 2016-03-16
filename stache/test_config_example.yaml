@@ -5,10 +5,14 @@
 
 isu_api_key: <some API key in stache>
 isu_item_id: <some item id in stache>
+isu_purpose: <expected purpose for this entry>
 isu_nickname: <expected nickname for this entry>
 isu_secret: <expected secret for this entry>
+isu_memo: <expected memo for this entry>
 
 oracle_api_key: <some API key in stache>
 oracle_item_id: <some item id in stache>
+oracle_purpose: <expected purpose for this entry>
 oracle_nickname: <expected nickname for this entry>
 oracle_dev_secret: <expected secret for this entry for dev env>
+oracle_memo: <expected memo for this entry>
