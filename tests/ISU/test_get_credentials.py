@@ -4,7 +4,7 @@ import os
 import sys
 import unittest
 
-from stache.ISU.get_credentials import ISU, ISUError
+from ISU.get_credentials import ISU, ISUError
 
 Configuration = namedtuple('Config', ('api_key', 'item_id', 'print_details'))
 
