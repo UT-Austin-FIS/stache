@@ -1,0 +1,21 @@
+/requirements.txt
+*.swp
+# emacs temporary files
+/logs
+/coverage
+.coverage
+/.emacs.*
+*~
+[#]*[#]
+.\#*
+*.idea
+
+# vm files
+**/.venv
+
+
+# python
+*.pyc
+**/__pycache__
+
+sample_*
