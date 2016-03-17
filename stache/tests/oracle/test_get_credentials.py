@@ -5,6 +5,7 @@ from stache.tests.get_credentials_for_tests import get_config
 
 config = get_config()
 
+
 class TestGetOracleCredentials(unittest.TestCase):
 
     def test_ret_creds(self):
@@ -15,8 +16,8 @@ class TestGetOracleCredentials(unittest.TestCase):
         nickname, password = reference.ret_creds()
 
         self.assertEqual([nickname, password], [config.oracle_nickname,
-                                                 config.oracle_dev_secret])
-
+                                                config.oracle_dev_secret]
+                         )
 
     def test_parse_secret(self):
 

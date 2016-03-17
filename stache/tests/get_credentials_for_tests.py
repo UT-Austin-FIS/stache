@@ -17,8 +17,11 @@ Configuration = namedtuple('Config', ('isu_api_key',
                                       'oracle_dev_secret',
                                       'oracle_memo',))
 
+
 def find_config():
+
     first_print = functools.partial(print, '\n\n')
+
     def nop(**kwargs):
         pass
 
@@ -36,7 +39,7 @@ def find_config():
     except ImportError:
         message('PyYAML must be installed to run tests.',
                 file=sys.stderr
-        )
+                )
         return None
 
     config_path = os.environ.get('STACHE_TEST_CONFIG')
@@ -45,8 +48,8 @@ def find_config():
         message('Unable to use the configuration path '
                 'specified in the environment variable '
                 'STACHE_TEST_CONFIG'
-        )
-        return None # we bail if you specified a path that doesn't exist
+                )
+        return None  # we bail if you specified a path that doesn't exist
 
     if config_path is None:
         config_path = os.path.join(os.getcwd(), 'test_config.yaml')
@@ -58,7 +61,7 @@ def find_config():
                           file=sys.stderr)
 
                 separate_on_console()
-                config_path = input('> Enter a test config path or enter for no ')
+                config_path = input('Enter a test config path or enter for no ')
                 if config_path == '':
                     break
 
@@ -82,10 +85,10 @@ def find_config():
                                  config['oracle_dev_secret'],
                                  config['oracle_memo'],)
 
+
 def get_config():
     config = find_config()
     if config:
         return config
     else:
         return None
-

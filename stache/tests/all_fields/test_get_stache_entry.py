@@ -16,7 +16,8 @@ class TestGetStacheEntry(unittest.TestCase):
                          config.isu_memo]
 
         reference = GetStacheEntry(config.isu_api_key,
-                                   str(config.isu_item_id))
+                                   str(config.isu_item_id)
+                                   )
         purpose, secret, nickname, memo = reference.return_fields()
 
         result_list = [purpose, secret, nickname, memo]

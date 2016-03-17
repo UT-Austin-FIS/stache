@@ -7,12 +7,7 @@ class GetStacheEntry(object):
         self.api_key = api_key
         self.item_id = item_id
 
-
     def return_fields(self):
         '''Return purpose,secret, nickname, memo from stache entry.'''
 
         return api_request.retrieve_creds(self.api_key, self.item_id)
-
-
-
-

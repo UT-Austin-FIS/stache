@@ -11,9 +11,11 @@ class TestGetISUCredentials(unittest.TestCase):
     def test_process_reasons(self):
 
         reference = GetISUCredentials(config.isu_api_key,
-                                      str(config.isu_item_id))
+                                      str(config.isu_item_id)
+                                      )
 
         nickname, password = reference.ret_creds()
 
         self.assertEqual([nickname, password], [config.isu_nickname,
-                                                 config.isu_secret])
+                                                config.isu_secret]
+                         )
