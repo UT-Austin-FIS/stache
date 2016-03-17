@@ -24,9 +24,6 @@ the entry is for.
         * nose >= 1.3.7
         * PyYAML >= 2.8.1
 
-* Deployment instructions
-
-    * TBD
 
 ### Stache Format guidelines ###
 
@@ -53,6 +50,20 @@ the entry is for.
     * credentials for anything outside workday ISUs and Oracle
     * Connection strings for Oracle
     * ?
+
+### How to Call ###
+
+* There are multiple ways to get data out of stache depending on your needs:
+
+    * ISU.get_credentials is used for returning the username, password for a 
+    Workday ISU.  There is no logic to deal with different tenants.
+    
+    * oracle.get_credentials is used for returning an oracle user and password 
+    for a passed in environment (DEV, QUAL, or PROD)
+    
+    * all_fields.get_stache_entry can be used to return a list of all fields in 
+    a stache entry, without any kind of parsing.  This is useful for new or 
+    unique stache entries.
 
 ### Contribution guidelines ###
 
