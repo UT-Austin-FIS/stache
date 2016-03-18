@@ -19,3 +19,6 @@
 **/__pycache__
 
 test_config.yaml
+_local_settings.py
+start.py
+main.py
