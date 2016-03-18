@@ -1,0 +1,18 @@
+# This file is an example of the configuration required to run the tests.
+# Note that the file would need to be renamed 'test_config.yaml' and be living in
+# the directory you run the tests from to be found automatically.
+# You'd also need PyYAML installed... see the README.md.
+
+isu_api_key: <some API key in stache>
+isu_item_id: <some item id in stache>
+isu_purpose: <expected purpose for this entry>
+isu_nickname: <expected nickname for this entry>
+isu_secret: <expected secret for this entry>
+isu_memo: <expected memo for this entry>
+
+oracle_api_key: <some API key in stache>
+oracle_item_id: <some item id in stache>
+oracle_purpose: <expected purpose for this entry>
+oracle_nickname: <expected nickname for this entry>
+oracle_dev_secret: <expected secret for this entry for dev env>
+oracle_memo: <expected memo for this entry>
