@@ -28,10 +28,10 @@ class GetOracleCredentials(object):
         PROD: prod-password
 
         '''
-        list = [x.strip() for x in secret.split('\n')]
+        list_envs = [x.strip() for x in secret.split('\n')]
 
         secret_dict = {}
-        for y in list:
+        for y in list_envs:
             piece = [x.strip() for x in y.split(':')]
             secret_dict[piece[0]] = piece[1]
 
