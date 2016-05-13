@@ -36,14 +36,14 @@ the entry is for.
     * Secret holds passwords for all environments/tenants/etc
 
 Ex (Oracle)
+
 ```
 DEV: password-dev
 QUAL: password-qual
 PROD: password-prod
-
 ```
 
-Ex2  (ISU)
+Ex  (ISU)
 
 ```
 utaustin6: password123
