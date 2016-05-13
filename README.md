@@ -19,6 +19,8 @@ the entry is for.
 
 * How to run tests
 
+    * tests expect a test_config.yaml.  See the test_config_example.yaml for 
+      expected format.
     * install dev_requirements.txt
     * nosetests
     * this also displays your coverage stats - they should stay about 80%
