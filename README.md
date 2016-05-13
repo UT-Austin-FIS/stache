@@ -19,10 +19,9 @@ the entry is for.
 
 * How to run tests
 
-    * Requirements not listed in requirements.txt
-        * coverage >= 
-        * nose >= 1.3.7
-        * PyYAML >= 2.8.1
+    * install dev_requirements.txt
+    * nosetests
+    * this also displays your coverage stats - they should stay about 80%
 
 
 ### Stache Format guidelines ###
