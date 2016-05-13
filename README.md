@@ -34,11 +34,21 @@ the entry is for.
 * Parsed Environment
     * Nickname is the username
     * Secret holds passwords for all environments/tenants/etc
-        * Ex: DEV: password-dev
-              QUAL: password-qual
-              PROD: password-prod
-        * Ex2:  utaustin6: password123
-                utaustin9: passwordABC
+
+Ex (Oracle)
+```
+DEV: password-dev
+QUAL: password-qual
+PROD: password-prod
+
+```
+
+Ex2  (ISU)
+
+```
+utaustin6: password123
+utaustin9: passwordABC
+```
 
 * Unhandled Situations
     * Connection strings for Oracle
