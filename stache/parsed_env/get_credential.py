@@ -1,7 +1,7 @@
 from stache import api_request
 
 
-class GetOracleCredentials(object):
+class GetCredential(object):
     def __init__(self, api_key, item_id, env):
 
         self.api_key = api_key
@@ -21,11 +21,11 @@ class GetOracleCredentials(object):
     def parse_secret(self, secret):
         '''
         Parse out secret to only return requested environment.
+        Environment is just the key of the dictionary in stache.
         Expected Format in Secret:
 
-        DEV: dev-password
-        QUAL: qual-password
-        PROD: prod-password
+        env: password123
+        env: passwordABC
 
         '''
         list_envs = [x.strip() for x in secret.split('\n')]

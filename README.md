@@ -19,10 +19,11 @@ the entry is for.
 
 * How to run tests
 
-    * Requirements not listed in requirements.txt
-        * coverage >= 
-        * nose >= 1.3.7
-        * PyYAML >= 2.8.1
+    * tests expect a test_config.yaml.  See the test_config_example.yaml for 
+      expected format.
+    * install dev_requirements.txt
+    * nosetests
+    * this also displays your coverage stats - they should stay about 80%
 
 
 ### Stache Format guidelines ###
@@ -30,24 +31,26 @@ the entry is for.
 * All Entires that will be accessed from this package need the option to "allow
  this item to be accessed by read-only API calls" enabled on the Stache entry
 
-* Workday ISUs
+* Parsed Environment
     * Nickname is the username
-    * Password is in secret
-    * Each tenant will have its own entry - this may be changed in the future
-    * It will be the responsibility of the calling program to append @tenant as 
-    needed
+    * Secret holds passwords for all environments/tenants/etc
 
-* Oracle
-    * Nickname is the oracle user
-    * Secret holds passwords for all environments
-        * Ex: DEV: password-dev
-              QUAL: password-qual
-              PROD: password-prod
+Ex (Oracle)
+
+```
+DEV: password-dev
+QUAL: password-qual
+PROD: password-prod
+```
+
+Ex  (ISU)
+
+```
+utaustin6: password123
+utaustin9: passwordABC
+```
 
 * Unhandled Situations
-    * multi environment credentials
-    * multi-tenant credentials
-    * credentials for anything outside workday ISUs and Oracle
     * Connection strings for Oracle
     * ?
 
@@ -55,11 +58,8 @@ the entry is for.
 
 * There are multiple ways to get data out of stache depending on your needs:
 
-    * ISU.get_credentials is used for returning the username, password for a 
-    Workday ISU.  There is no logic to deal with different tenants.
-    
-    * oracle.get_credentials is used for returning an oracle user and password 
-    for a passed in environment (DEV, QUAL, or PROD)
+    * parsed_env.get_credential is used for returning the username and password 
+    for a passed in environment.)
     
     * all_fields.get_stache_entry can be used to return a list of all fields in 
     a stache entry, without any kind of parsing.  This is useful for new or 
