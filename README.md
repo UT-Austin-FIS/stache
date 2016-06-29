@@ -8,6 +8,8 @@ This project supports reading stache via the API.
 There is an expectation that entires are in a specific format, based on what 
 the entry is for. 
 
+* [Stache API Wiki Page](https://wikis.utexas.edu/display/ISO/Stache+API)
+
 * Version: 1.0
 
 ### How do I get set up? ###
