@@ -1,3 +1,5 @@
+from __future__ import print_function
+
 import functools
 import os
 import sys
@@ -20,15 +22,19 @@ Configuration = namedtuple('Config', ('isu_api_key',
 
 def find_config():
 
-    first_print = functools.partial(print, '\n\n')
+    # For Python 2 support: put the non-local variable `first_print` inside a
+    # dictionary, so it can be modified inside `separate_on_console`'s closure.
+    # See: http://stackoverflow.com/a/3190783
+    nonlocals = {'first_print': functools.partial(print, '\n\n')}
 
     def nop(**kwargs):
         pass
 
     def separate_on_console(**kwargs):
-        nonlocal first_print
-        first_print(**kwargs)
-        first_print = nop
+        # Would use `nonlocal` keyword here, but not valid in Python 2.
+        # nonlocal first_print
+        nonlocals['first_print'](**kwargs)
+        nonlocals['first_print'] = nop
 
     def message(msg, **kwargs):
         separate_on_console(**kwargs)
